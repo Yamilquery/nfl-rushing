@@ -12,7 +12,7 @@ defmodule NflRushing.FootballPlayers.Model.FootballPlayer do
     field :rushing_average_yards_per_attempt, :float
     field :rushing_yards_per_game, :float
     field :total_rushing_touchdowns, :float
-    field :longest_rush, :float
+    field :longest_rush, :string
     field :rushing_first_downs, :float
     field :rushing_first_down_percentage, :float
     field :rushing_20_yards_each, :float
