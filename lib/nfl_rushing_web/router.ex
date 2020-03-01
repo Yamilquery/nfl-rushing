@@ -13,10 +13,4 @@ defmodule NflRushingWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", NflRushingWeb do
-    pipe_through :browser
-
-    get "/", PageController, :index
-  end
-
 end

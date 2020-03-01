@@ -40,7 +40,7 @@ defmodule NflRushingWeb.Endpoint do
     pass: ["*/*"],
     json_decoder: Jason
 
-  plug Absinthe.Plug,
+    plug Absinthe.Plug,
     schema: NflRushingWeb.Schema
 
   plug Plug.MethodOverride
