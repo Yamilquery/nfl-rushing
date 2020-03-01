@@ -35,6 +35,7 @@ defmodule NflRushing.MixProject do
     [
       {:absinthe, "~> 1.4"},
       {:absinthe_plug, "~> 1.4"},
+      {:cors_plug, "~> 1.5"},
       {:ecto_sql, "~> 3.1"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.1"},
