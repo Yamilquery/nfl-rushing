@@ -1,16 +1,20 @@
 defmodule NflRushingWeb.Router do
   use NflRushingWeb, :router
 
-  pipeline :browser do
-    plug :accepts, ["html"]
-    plug :fetch_session
-    plug :fetch_flash
-    plug :protect_from_forgery
-    plug :put_secure_browser_headers
+  pipeline :graphql do
+    plug(CORSPlug, origin: ["http://localhost:3000", "https://github.ist"])
+    plug(:accepts, ["json"])
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
+  scope "/" do
+    pipe_through(:graphql)
+
+    forward("/graphql", Absinthe.Plug, schema: NflRushingWeb.Schema)
+
+    forward("/graphiql", Absinthe.Plug.GraphiQL,
+      schema: NflRushingWeb.Schema,
+      interface: :playground
+    )
   end
 
 end
