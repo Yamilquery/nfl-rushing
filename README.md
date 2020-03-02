@@ -14,7 +14,7 @@ As outlined in our job description, you will come across technologies which incl
 ### Challenge Background
 We have sets of records representing football players' rushing statistics. All records have the following attributes:
 * `Player` (Player's name)
-* `Team` (Player's team abbreviation)
+* `Team` (Player's team abreviation)
 * `Pos` (Player's postion)
 * `Att/G` (Rushing Attempts Per Game Average)
 * `Att` (Rushing Attempts)
