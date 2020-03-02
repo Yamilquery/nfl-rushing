@@ -219,6 +219,33 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
     } === json_response(conn, 200)
   end
 
+  test "Sort the players by an Invalid field", %{conn: conn} do
+    conn =
+      conn
+      |> put_graphql_headers()
+      |> post("/graphql",
+        %{
+          query: @order_query,
+          variables: %{
+            direction: "DESC",
+            field: "INVALID_FIELD"
+          }
+        }
+      )
+
+    assert %{
+      "errors" => [
+        %{
+          "locations" => [
+            %{"column" => 0, "line" => 3}
+          ],
+          "message" =>
+          "Argument \"orderBy\" has invalid value {direction: $direction, field: $field}.\nIn field \"field\": Expected type \"FootballPlayerOrderField!\", found $field."
+        }
+      ]
+    } === json_response(conn, 200)
+  end
+
   test "Filter by the player's name", %{conn: conn} do
     conn =
       conn
