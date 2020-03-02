@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 1.8vmin;
   pointer-events: none;
 }
 
@@ -14,13 +14,13 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 1.8vmin);
   color: white;
 }
 
@@ -28,11 +28,15 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/Roboto/Roboto-Medium.ttf'); /* IE9 Compat Modes */
+  src: local('Roboto'), local('Roboto'),
+       url('fonts/Roboto/Roboto-Medium.ttf') format('truetype') /* Safari, Android, iOS */
+}
+
+body {
+  font-family: Roboto;
 }
