@@ -3,7 +3,7 @@ alias NflRushing.FootballPlayers.Model.FootballPlayer
 %FootballPlayer{}
 |> FootballPlayer.changeset(%{
   player_name: "Joe Banyard",
-  team_abbreviation: "JAX",
+  team_abreviation: "JAX",
   player_position: "RB",
   rushing_attemps_per_game_avg: 2,
   rushing_attemps: 2,
@@ -23,7 +23,7 @@ alias NflRushing.FootballPlayers.Model.FootballPlayer
 %FootballPlayer{}
 |> FootballPlayer.changeset(%{
   player_name: "Shaun Hill",
-  team_abbreviation: "MIN",
+  team_abreviation: "MIN",
   player_position: "QB",
   rushing_attemps_per_game_avg: 2,
   rushing_attemps: 2,

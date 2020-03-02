@@ -4,7 +4,7 @@ defmodule NflRushing.FootballPlayers.Model.FootballPlayer do
   # coveralls-ignore-start
   schema "football_players" do
     field :player_name, :string
-    field :team_abbreviation, :string
+    field :team_abreviation, :string
     field :player_position, :string
     field :rushing_attemps_per_game_avg, :float
     field :rushing_attemps, :float

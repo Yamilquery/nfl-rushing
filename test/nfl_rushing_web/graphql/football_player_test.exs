@@ -9,7 +9,7 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
         orderBy: {direction: $direction, field: $field}
       ) {
         player_name,
-        team_abbreviation,
+        team_abreviation,
         player_position,
         rushing_attemps_per_game_avg,
         rushing_attemps,
@@ -33,7 +33,7 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
         playerName: $playerName
       ) {
         player_name,
-        team_abbreviation,
+        team_abreviation,
         player_position,
         rushing_attemps_per_game_avg,
         rushing_attemps,
@@ -81,7 +81,7 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
               "rushing_first_downs" => 0.0,
               "rushing_fumbles" => 0.0,
               "rushing_yards_per_game" => 7.0,
-              "team_abbreviation" => "JAX",
+              "team_abreviation" => "JAX",
               "total_rushing_touchdowns" => 0.0,
               "total_rushing_yards" => 7.0
             },
@@ -98,7 +98,7 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
               "rushing_first_downs" => 0.0,
               "rushing_fumbles" => 0.0,
               "rushing_yards_per_game" => 7.0,
-              "team_abbreviation" => "MIN",
+              "team_abreviation" => "MIN",
               "total_rushing_touchdowns" => 0.0,
               "total_rushing_yards" => 4.0
             }
@@ -137,7 +137,7 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
             "rushing_first_downs" => 0.0,
             "rushing_fumbles" => 0.0,
             "rushing_yards_per_game" => 7.0,
-            "team_abbreviation" => "JAX",
+            "team_abreviation" => "JAX",
             "total_rushing_touchdowns" => 0.0,
             "total_rushing_yards" => 7.0
           },
@@ -154,7 +154,7 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
             "rushing_first_downs" => 0.0,
             "rushing_fumbles" => 0.0,
             "rushing_yards_per_game" => 7.0,
-            "team_abbreviation" => "MIN",
+            "team_abreviation" => "MIN",
             "total_rushing_touchdowns" => 0.0,
             "total_rushing_yards" => 4.0
           }
@@ -193,7 +193,7 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
             "rushing_first_downs" => 0.0,
             "rushing_fumbles" => 0.0,
             "rushing_yards_per_game" => 7.0,
-            "team_abbreviation" => "JAX",
+            "team_abreviation" => "JAX",
             "total_rushing_touchdowns" => 0.0,
             "total_rushing_yards" => 7.0
           },
@@ -210,7 +210,7 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
             "rushing_first_downs" => 0.0,
             "rushing_fumbles" => 0.0,
             "rushing_yards_per_game" => 7.0,
-            "team_abbreviation" => "MIN",
+            "team_abreviation" => "MIN",
             "total_rushing_touchdowns" => 0.0,
             "total_rushing_yards" => 4.0
           }
@@ -275,7 +275,7 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
             "rushing_first_downs" => 0.0,
             "rushing_fumbles" => 0.0,
             "rushing_yards_per_game" => 7.0,
-            "team_abbreviation" => "JAX",
+            "team_abreviation" => "JAX",
             "total_rushing_touchdowns" => 0.0,
             "total_rushing_yards" => 7.0
           }

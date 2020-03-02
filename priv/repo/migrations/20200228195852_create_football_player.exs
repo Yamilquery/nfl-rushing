@@ -4,7 +4,7 @@ defmodule NflRushing.Repo.Migrations.CreateFootballPlayer do
   def change do
     create table(:football_players) do
       add :player_name, :string
-      add :team_abbreviation, :string
+      add :team_abreviation, :string
       add :player_position, :string
       add :rushing_attemps_per_game_avg, :float
       add :rushing_attemps, :float
