@@ -46,9 +46,9 @@ body {
   padding-top: 2vmin;
 }
 .CardHeader__header div{
-  font-size: calc(10px + 0.7vmin);
+  font-size: calc(10px + 0.5vmin);
   font-weight: bold;
 }
 .CardResults div{
-  font-size: calc(10px + 0.7vmin);
+  font-size: calc(10px + 0.5vmin);
 }
