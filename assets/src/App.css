@@ -19,7 +19,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: top;
+  padding-top: 2vmin;
   font-size: calc(10px + 1.8vmin);
   color: white;
 }
@@ -39,4 +40,15 @@
 
 body {
   font-family: Roboto;
+}
+
+.CardHeader__header {
+  padding-top: 2vmin;
+}
+.CardHeader__header div{
+  font-size: calc(10px + 0.7vmin);
+  font-weight: bold;
+}
+.CardResults div{
+  font-size: calc(10px + 0.7vmin);
 }
