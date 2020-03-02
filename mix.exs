@@ -10,7 +10,14 @@ defmodule NflRushing.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ]
     ]
   end
 
@@ -37,6 +44,7 @@ defmodule NflRushing.MixProject do
       {:absinthe_plug, "~> 1.4"},
       {:cors_plug, "~> 1.5"},
       {:ecto_sql, "~> 3.1"},
+      {:excoveralls, "~> 0.10", only: :test},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.1"},
       {:phoenix, "~> 1.4.14"},
