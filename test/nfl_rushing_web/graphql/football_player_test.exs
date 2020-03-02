@@ -4,10 +4,10 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
   import NflRushingWeb.TestSupport.GraphQLHelper
 
   @basic_query """
-    query($playerName: String!) {
+    query($playerName: String, $direction: String!, $field: String!) {
       football_players(
         playerName: $playerName,
-        orderBy: {direction: DESC, field: TOTAL_RUSHING_YARDS}
+        orderBy: {direction: $direction, field: $field}
       ) {
         player_name,
         team_abbreviation,
@@ -28,12 +28,131 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
     }
   """
 
-  test "returns basic data", %{conn: conn} do
+  test "Sort the players by Total Rushing Yards", %{conn: conn} do
     conn =
       conn
       |> put_graphql_headers()
       |> post("/graphql",
-        %{query: @basic_query, variables: %{playerName: "a"}})
+        %{
+          query: @basic_query,
+          variables: %{
+            direction: "DESC",
+            field: "TOTAL_RUSHING_YARDS"
+          }
+        }
+      )
+
+      assert %{
+        "data" => %{
+          "football_players" => [
+            %{
+              "longest_rush" => "7",
+              "player_name" => "Joe Banyard",
+              "player_position" => "RB",
+              "rushing_20_yards_each" => 0.0,
+              "rushing_40_yards_each" => 0.0,
+              "rushing_attemps" => 2.0,
+              "rushing_attemps_per_game_avg" => 2.0,
+              "rushing_average_yards_per_attempt" => 3.0,
+              "rushing_first_down_percentage" => 0.0,
+              "rushing_first_downs" => 0.0,
+              "rushing_fumbles" => 0.0,
+              "rushing_yards_per_game" => 7.0,
+              "team_abbreviation" => "JAX",
+              "total_rushing_touchdowns" => 0.0,
+              "total_rushing_yards" => 7.0
+            },
+            %{
+              "longest_rush" => "7",
+              "player_name" => "Shaun Hill",
+              "player_position" => "QB",
+              "rushing_20_yards_each" => 0.0,
+              "rushing_40_yards_each" => 0.0,
+              "rushing_attemps" => 2.0,
+              "rushing_attemps_per_game_avg" => 2.0,
+              "rushing_average_yards_per_attempt" => 3.0,
+              "rushing_first_down_percentage" => 0.0,
+              "rushing_first_downs" => 0.0,
+              "rushing_fumbles" => 0.0,
+              "rushing_yards_per_game" => 7.0,
+              "team_abbreviation" => "MIN",
+              "total_rushing_touchdowns" => 0.0,
+              "total_rushing_yards" => 4.0
+            }
+          ]
+        }
+      } === json_response(conn, 200)
+  end
+
+  test "Sort the players by Longest Rush", %{conn: conn} do
+    conn =
+      conn
+      |> put_graphql_headers()
+      |> post("/graphql",
+        %{
+          query: @basic_query,
+          variables: %{
+            direction: "DESC",
+            field: "LONGEST_RUSH"
+          }
+        }
+      )
+
+    assert %{
+      "data" => %{
+        "football_players" => [
+          %{
+            "longest_rush" => "7",
+            "player_name" => "Joe Banyard",
+            "player_position" => "RB",
+            "rushing_20_yards_each" => 0.0,
+            "rushing_40_yards_each" => 0.0,
+            "rushing_attemps" => 2.0,
+            "rushing_attemps_per_game_avg" => 2.0,
+            "rushing_average_yards_per_attempt" => 3.0,
+            "rushing_first_down_percentage" => 0.0,
+            "rushing_first_downs" => 0.0,
+            "rushing_fumbles" => 0.0,
+            "rushing_yards_per_game" => 7.0,
+            "team_abbreviation" => "JAX",
+            "total_rushing_touchdowns" => 0.0,
+            "total_rushing_yards" => 7.0
+          },
+          %{
+            "longest_rush" => "7",
+            "player_name" => "Shaun Hill",
+            "player_position" => "QB",
+            "rushing_20_yards_each" => 0.0,
+            "rushing_40_yards_each" => 0.0,
+            "rushing_attemps" => 2.0,
+            "rushing_attemps_per_game_avg" => 2.0,
+            "rushing_average_yards_per_attempt" => 3.0,
+            "rushing_first_down_percentage" => 0.0,
+            "rushing_first_downs" => 0.0,
+            "rushing_fumbles" => 0.0,
+            "rushing_yards_per_game" => 7.0,
+            "team_abbreviation" => "MIN",
+            "total_rushing_touchdowns" => 0.0,
+            "total_rushing_yards" => 4.0
+          }
+        ]
+      }
+    } === json_response(conn, 200)
+  end
+
+  test "Sort the players by Total Rushing Touchdowns", %{conn: conn} do
+    conn =
+      conn
+      |> put_graphql_headers()
+      |> post("/graphql",
+        %{
+          query: @basic_query,
+          variables: %{
+            direction: "DESC",
+            field: "TOTAL_RUSHING_TOUCHDOWNS"
+          }
+        }
+      )
 
     assert %{
       "data" => %{
