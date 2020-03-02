@@ -39,7 +39,6 @@ defmodule NflRushingWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import NflRushingWeb.ErrorHelpers
       import NflRushingWeb.Gettext
       alias NflRushingWeb.Router.Helpers, as: Routes
     end
@@ -60,10 +59,12 @@ defmodule NflRushingWeb do
     end
   end
 
+  # coveralls-ignore-start
   @doc """
   When used, dispatch to the appropriate controller/view/etc.
   """
   defmacro __using__(which) when is_atom(which) do
     apply(__MODULE__, which, [])
   end
+  # coveralls-ignore-stop
 end

@@ -10,11 +10,6 @@ defmodule NflRushingWeb.Router do
     pipe_through(:graphql)
 
     forward("/graphql", Absinthe.Plug, schema: NflRushingWeb.Schema)
-
-    forward("/graphiql", Absinthe.Plug.GraphiQL,
-      schema: NflRushingWeb.Schema,
-      interface: :playground
-    )
   end
 
 end

@@ -25,7 +25,4 @@ defmodule NflRushing.ArgumentParser do
     max(min(limit, max_limit), 0)
   end
 
-  defp update_limit(limit, nil) do
-    limit
-  end
 end
