@@ -198,14 +198,14 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
         %{
           query: @player_name_query,
           variables: %{
-            playerName: "Joe"
+            playerName: "Yamil Díaz"
           }
         }
       )
 
     assert %{
       "data" => %{
-        "football_players" => _players
+        "football_players" => [_player]
       }
     } = json_response(conn, 200)
   end
