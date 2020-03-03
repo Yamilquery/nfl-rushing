@@ -49,7 +49,7 @@ class App extends React.Component {
       player_name: "",
       direction: "ASC",
       field: "TOTAL_RUSHING_YARDS",
-      limit: 10,
+      limit: 20,
       offset: 0,
     };
   }

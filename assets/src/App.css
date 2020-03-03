@@ -54,7 +54,6 @@ p {
 }
 .CardHeader__header div{
   padding: 0 10px;
-  cursor: pointer;
   letter-spacing: 1px;
   font-weight: 400;
   font-size: 14px;
