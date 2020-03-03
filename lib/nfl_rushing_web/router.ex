@@ -24,6 +24,7 @@ defmodule NflRushingWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/download-csv", PageController, :download_csv
   end
 
 end

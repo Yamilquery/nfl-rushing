@@ -23,7 +23,6 @@ defmodule NflRushing.FootballPlayers.Model.FootballPlayer do
 
     timestamps()
   end
-  # coveralls-ignore-stop
 
   @doc false
   def changeset(%__MODULE__{} = post, attrs) do
@@ -37,5 +36,6 @@ defmodule NflRushing.FootballPlayers.Model.FootballPlayer do
     ])
     |> validate_required([:player_name, :rushing_attemps_per_game_avg])
   end
+  # coveralls-ignore-stop
 
 end

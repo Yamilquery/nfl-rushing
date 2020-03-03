@@ -70,6 +70,10 @@ class App extends React.Component {
     });
   }
 
+  downloadCsv() {
+    window.location.href = `download-csv?player_name=${this.state.player_name}&direction=${this.state.direction}&field=${this.state.field}`;
+  }
+
   render() {
     return (<Query
       query={GET_FOOTBALL_PLAYERS}
@@ -107,6 +111,15 @@ class App extends React.Component {
               <p>NFL Players' Rushing Statistics</p>
               
               <Container>
+                <Row className="CardHeader__header">
+                  <Col xs={10}/>
+                  <Col xs={2}>
+                  <Button
+                      variant="light"
+                      onClick={(e) => this.downloadCsv()}
+                    >Download CSV</Button>
+                  </Col>
+                </Row>
                 <Row className="CardHeader__header">
                   <Col xs={2}>
                     <input

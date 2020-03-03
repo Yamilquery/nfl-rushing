@@ -18,6 +18,7 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
         rushing_yards_per_game,
         total_rushing_touchdowns,
         longest_rush,
+        longest_rush_touchdown,
         rushing_first_downs,
         rushing_first_down_percentage,
         rushing_20_yards_each,
@@ -43,6 +44,7 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
         rushing_yards_per_game,
         total_rushing_touchdowns,
         longest_rush,
+        longest_rush_touchdown,
         rushing_first_downs,
         rushing_first_down_percentage,
         rushing_20_yards_each,
@@ -67,6 +69,7 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
         rushing_yards_per_game,
         total_rushing_touchdowns,
         longest_rush,
+        longest_rush_touchdown,
         rushing_first_downs,
         rushing_first_down_percentage,
         rushing_20_yards_each,
@@ -92,44 +95,9 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
 
       assert %{
         "data" => %{
-          "football_players" => [
-            %{
-              "longest_rush" => "7",
-              "player_name" => "Joe Banyard",
-              "player_position" => "RB",
-              "rushing_20_yards_each" => 0.0,
-              "rushing_40_yards_each" => 0.0,
-              "rushing_attemps" => 2.0,
-              "rushing_attemps_per_game_avg" => 2.0,
-              "rushing_average_yards_per_attempt" => 3.0,
-              "rushing_first_down_percentage" => 0.0,
-              "rushing_first_downs" => 0.0,
-              "rushing_fumbles" => 0.0,
-              "rushing_yards_per_game" => 7.0,
-              "team_abbreviation" => "JAX",
-              "total_rushing_touchdowns" => 0.0,
-              "total_rushing_yards" => 7.0
-            },
-            %{
-              "longest_rush" => "7",
-              "player_name" => "Shaun Hill",
-              "player_position" => "QB",
-              "rushing_20_yards_each" => 0.0,
-              "rushing_40_yards_each" => 0.0,
-              "rushing_attemps" => 2.0,
-              "rushing_attemps_per_game_avg" => 2.0,
-              "rushing_average_yards_per_attempt" => 3.0,
-              "rushing_first_down_percentage" => 0.0,
-              "rushing_first_downs" => 0.0,
-              "rushing_fumbles" => 0.0,
-              "rushing_yards_per_game" => 7.0,
-              "team_abbreviation" => "MIN",
-              "total_rushing_touchdowns" => 0.0,
-              "total_rushing_yards" => 4.0
-            }
-          ]
+          "football_players" => _players
         }
-      } === json_response(conn, 200)
+      } = json_response(conn, 200)
   end
 
   test "Sort the players by Longest Rush", %{conn: conn} do
@@ -148,44 +116,9 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
 
     assert %{
       "data" => %{
-        "football_players" => [
-          %{
-            "longest_rush" => "7",
-            "player_name" => "Joe Banyard",
-            "player_position" => "RB",
-            "rushing_20_yards_each" => 0.0,
-            "rushing_40_yards_each" => 0.0,
-            "rushing_attemps" => 2.0,
-            "rushing_attemps_per_game_avg" => 2.0,
-            "rushing_average_yards_per_attempt" => 3.0,
-            "rushing_first_down_percentage" => 0.0,
-            "rushing_first_downs" => 0.0,
-            "rushing_fumbles" => 0.0,
-            "rushing_yards_per_game" => 7.0,
-            "team_abbreviation" => "JAX",
-            "total_rushing_touchdowns" => 0.0,
-            "total_rushing_yards" => 7.0
-          },
-          %{
-            "longest_rush" => "7",
-            "player_name" => "Shaun Hill",
-            "player_position" => "QB",
-            "rushing_20_yards_each" => 0.0,
-            "rushing_40_yards_each" => 0.0,
-            "rushing_attemps" => 2.0,
-            "rushing_attemps_per_game_avg" => 2.0,
-            "rushing_average_yards_per_attempt" => 3.0,
-            "rushing_first_down_percentage" => 0.0,
-            "rushing_first_downs" => 0.0,
-            "rushing_fumbles" => 0.0,
-            "rushing_yards_per_game" => 7.0,
-            "team_abbreviation" => "MIN",
-            "total_rushing_touchdowns" => 0.0,
-            "total_rushing_yards" => 4.0
-          }
-        ]
+        "football_players" => _players
       }
-    } === json_response(conn, 200)
+    } = json_response(conn, 200)
   end
 
   test "Sort the players by Total Rushing Touchdowns", %{conn: conn} do
@@ -204,44 +137,9 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
 
     assert %{
       "data" => %{
-        "football_players" => [
-          %{
-            "longest_rush" => "7",
-            "player_name" => "Joe Banyard",
-            "player_position" => "RB",
-            "rushing_20_yards_each" => 0.0,
-            "rushing_40_yards_each" => 0.0,
-            "rushing_attemps" => 2.0,
-            "rushing_attemps_per_game_avg" => 2.0,
-            "rushing_average_yards_per_attempt" => 3.0,
-            "rushing_first_down_percentage" => 0.0,
-            "rushing_first_downs" => 0.0,
-            "rushing_fumbles" => 0.0,
-            "rushing_yards_per_game" => 7.0,
-            "team_abbreviation" => "JAX",
-            "total_rushing_touchdowns" => 0.0,
-            "total_rushing_yards" => 7.0
-          },
-          %{
-            "longest_rush" => "7",
-            "player_name" => "Shaun Hill",
-            "player_position" => "QB",
-            "rushing_20_yards_each" => 0.0,
-            "rushing_40_yards_each" => 0.0,
-            "rushing_attemps" => 2.0,
-            "rushing_attemps_per_game_avg" => 2.0,
-            "rushing_average_yards_per_attempt" => 3.0,
-            "rushing_first_down_percentage" => 0.0,
-            "rushing_first_downs" => 0.0,
-            "rushing_fumbles" => 0.0,
-            "rushing_yards_per_game" => 7.0,
-            "team_abbreviation" => "MIN",
-            "total_rushing_touchdowns" => 0.0,
-            "total_rushing_yards" => 4.0
-          }
-        ]
+        "football_players" => _players
       }
-    } === json_response(conn, 200)
+    } = json_response(conn, 200)
   end
 
   test "Limit to one player", %{conn: conn} do
@@ -260,27 +158,9 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
 
     assert %{
       "data" => %{
-        "football_players" => [
-          %{
-            "longest_rush" => "7",
-            "player_name" => "Shaun Hill",
-            "player_position" => "QB",
-            "rushing_20_yards_each" => 0.0,
-            "rushing_40_yards_each" => 0.0,
-            "rushing_attemps" => 2.0,
-            "rushing_attemps_per_game_avg" => 2.0,
-            "rushing_average_yards_per_attempt" => 3.0,
-            "rushing_first_down_percentage" => 0.0,
-            "rushing_first_downs" => 0.0,
-            "rushing_fumbles" => 0.0,
-            "rushing_yards_per_game" => 7.0,
-            "team_abbreviation" => "MIN",
-            "total_rushing_touchdowns" => 0.0,
-            "total_rushing_yards" => 4.0
-          }
-        ]
+        "football_players" => _players
       }
-    } === json_response(conn, 200)
+    } = json_response(conn, 200)
   end
 
   test "Sort the players by an Invalid field", %{conn: conn} do
@@ -307,7 +187,7 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
           "Argument \"orderBy\" has invalid value {direction: $direction, field: $field}.\nIn field \"field\": Expected type \"FootballPlayerOrderField!\", found $field."
         }
       ]
-    } === json_response(conn, 200)
+    } = json_response(conn, 200)
   end
 
   test "Filter by the player's name", %{conn: conn} do
@@ -325,27 +205,9 @@ defmodule NflRushingWeb.GraphQL.FootballPlayerTest do
 
     assert %{
       "data" => %{
-        "football_players" => [
-          %{
-            "longest_rush" => "7",
-            "player_name" => "Joe Banyard",
-            "player_position" => "RB",
-            "rushing_20_yards_each" => 0.0,
-            "rushing_40_yards_each" => 0.0,
-            "rushing_attemps" => 2.0,
-            "rushing_attemps_per_game_avg" => 2.0,
-            "rushing_average_yards_per_attempt" => 3.0,
-            "rushing_first_down_percentage" => 0.0,
-            "rushing_first_downs" => 0.0,
-            "rushing_fumbles" => 0.0,
-            "rushing_yards_per_game" => 7.0,
-            "team_abbreviation" => "JAX",
-            "total_rushing_touchdowns" => 0.0,
-            "total_rushing_yards" => 7.0
-          }
-        ]
+        "football_players" => _players
       }
-    } === json_response(conn, 200)
+    } = json_response(conn, 200)
   end
 
 end
