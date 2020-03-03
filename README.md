@@ -55,6 +55,8 @@ If you have any questions regarding requirements, do not hesitate to email your 
 
 ### Installation and running this solution
 
+First, you need to install Elixir in your environment: [https://elixir-lang.org/install.html](https://elixir-lang.org/install.html)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
