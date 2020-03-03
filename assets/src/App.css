@@ -81,3 +81,8 @@ p {
   text-align: center;
   border: 0;
 }
+.Legend {
+  font-size: calc(8px + 0.3vmin);
+  text-align: right;
+  text-transform: none;
+}

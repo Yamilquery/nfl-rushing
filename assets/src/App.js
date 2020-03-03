@@ -112,7 +112,9 @@ class App extends React.Component {
               
               <Container>
                 <Row className="CardHeader__header">
-                  <Col xs={10}/>
+                  <Col xs={10}>
+                    <p className="Legend">This view only shows 20 records, download the CSV to get all the results.</p>
+                  </Col>
                   <Col xs={2}>
                   <Button
                       variant="light"
