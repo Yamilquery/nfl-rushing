@@ -42,13 +42,28 @@ body {
   font-family: Roboto;
 }
 
+p {
+  font-size: 32px;
+  font-weight: 500;
+  color: #f9f9f9;
+  padding: 15px 0 0;
+}
+
 .CardHeader__header {
   padding-top: 2vmin;
 }
 .CardHeader__header div{
-  font-size: calc(10px + 0.5vmin);
-  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 30px;
+  color: #f9f9f9;
+  text-transform: uppercase;
 }
 .CardResults div{
-  font-size: calc(10px + 0.5vmin);
+  color: #f9f9f9;
+  font-size: 15px;
+  font-weight: 400;
 }
