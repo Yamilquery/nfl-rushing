@@ -12,7 +12,8 @@ defmodule NflRushing.Repo.Migrations.CreateFootballPlayer do
       add :rushing_average_yards_per_attempt, :float
       add :rushing_yards_per_game, :float
       add :total_rushing_touchdowns, :float
-      add :longest_rush, :string
+      add :longest_rush, :float
+      add :longest_rush_touchdown, :boolean
       add :rushing_first_downs, :float
       add :rushing_first_down_percentage, :float
       add :rushing_20_yards_each, :float

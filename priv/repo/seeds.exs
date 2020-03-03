@@ -6,7 +6,15 @@ alias NflRushing.FootballPlayers.Model.FootballPlayer
   |> Jason.decode()
 
 Enum.filter(data, fn d ->
-  lng = if String.valid?(d["Lng"]), do: d["Lng"], else: Integer.to_string(d["Lng"])
+  lngt = if String.valid?(d["Lng"]), do: String.contains?(d["Lng"], "T"), else: false
+
+  lng = if String.valid?(d["Lng"]) do
+    d["Lng"]
+    |> String.replace("T", "")
+    |> String.to_integer()
+  else
+    d["Lng"]
+  end
 
   yds = if String.valid?(d["Yds"]) do
     d["Yds"]
@@ -37,6 +45,7 @@ Enum.filter(data, fn d ->
     rushing_yards_per_game: d["Yds/G"],
     total_rushing_touchdowns: td,
     longest_rush: lng,
+    longest_rush_touchdown: lngt,
     rushing_first_downs: d["1st"],
     rushing_first_down_percentage: d["1st%"],
     rushing_20_yards_each: d["20+"],

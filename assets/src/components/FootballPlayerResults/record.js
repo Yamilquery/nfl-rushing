@@ -13,7 +13,7 @@ const FootballPlayerRecord = ({ player }) => {
         <Col>{player.rushing_average_yards_per_attempt}</Col>
         <Col>{player.rushing_yards_per_game}</Col>
         <Col>{player.total_rushing_touchdowns}</Col>
-        <Col>{player.longest_rush}</Col>
+        <Col>{player.longest_rush}{player.longest_rush_touchdown ? "T" : ""}</Col>
         <Col>{player.rushing_first_downs}</Col>
         <Col>{player.rushing_first_down_percentage}</Col>
         <Col>{player.rushing_20_yards_each}</Col>

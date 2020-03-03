@@ -33,6 +33,7 @@ const GET_FOOTBALL_PLAYERS = gql`
       rushing_yards_per_game,
       total_rushing_touchdowns,
       longest_rush,
+      longest_rush_touchdown,
       rushing_first_downs,
       rushing_first_down_percentage,
       rushing_20_yards_each,
