@@ -74,6 +74,7 @@ Run the `MIX_ENV=test mix coveralls` command to show coverage information on loc
 This task locally prints out the coverage information. It doesn't submit the results to the server.
 
 ```Shell
+$ MIX_ENV=test test.setup
 $ MIX_ENV=test mix coveralls
 ..........
 
