@@ -6,7 +6,7 @@ const renderTableData = (data) => {
 }
 
 const FootballPlayerResults = ({ data }) => {
-    return <div>{renderTableData(data)}</div>;
+    return <div className="CardBodyResults">{renderTableData(data)}</div>;
 };
 
 export default FootballPlayerResults;

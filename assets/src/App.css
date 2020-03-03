@@ -62,8 +62,23 @@ p {
   color: #f9f9f9;
   text-transform: uppercase;
 }
+.CardBodyResults {
+  padding-top: 1vmin;
+}
 .CardResults div{
   color: #f9f9f9;
   font-size: 15px;
   font-weight: 400;
+}
+.SearchPlayer {
+  padding: 0 10px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 30px;
+  color: #f9f9f9;
+  text-transform: uppercase;
+  background-color: #000;
+  text-align: center;
+  border: 0;
 }
