@@ -1,41 +1,48 @@
 alias NflRushing.FootballPlayers.Model.FootballPlayer
 
-%FootballPlayer{}
-|> FootballPlayer.changeset(%{
-  player_name: "Joe Banyard",
-  team_abbreviation: "JAX",
-  player_position: "RB",
-  rushing_attemps_per_game_avg: 2,
-  rushing_attemps: 2,
-  total_rushing_yards: 7,
-  rushing_average_yards_per_attempt: 3,
-  rushing_yards_per_game: 7,
-  total_rushing_touchdowns: 2,
-  longest_rush: "7",
-  rushing_first_downs: 0,
-  rushing_first_down_percentage: 0,
-  rushing_20_yards_each: 0,
-  rushing_40_yards_each: 0,
-  rushing_fumbles: 0,
-})
-|> NflRushing.Repo.insert!
 
-%FootballPlayer{}
-|> FootballPlayer.changeset(%{
-  player_name: "Shaun Hill",
-  team_abbreviation: "MIN",
-  player_position: "QB",
-  rushing_attemps_per_game_avg: 2,
-  rushing_attemps: 2,
-  total_rushing_yards: 4,
-  rushing_average_yards_per_attempt: 3,
-  rushing_yards_per_game: 7,
-  total_rushing_touchdowns: 0,
-  longest_rush: "4",
-  rushing_first_downs: 0,
-  rushing_first_down_percentage: 0,
-  rushing_20_yards_each: 0,
-  rushing_40_yards_each: 0,
-  rushing_fumbles: 0,
-})
-|> NflRushing.Repo.insert!
+{:ok, data} = Path.relative_to_cwd("rushing.json")
+  |> File.read!()
+  |> Jason.decode()
+
+Enum.filter(data, fn d ->
+  lng = if String.valid?(d["Lng"]), do: d["Lng"], else: Integer.to_string(d["Lng"])
+
+  yds = if String.valid?(d["Yds"]) do
+    d["Yds"]
+    |> String.replace(",", "")
+    |> String.to_integer()
+  else
+    d["Yds"]
+  end
+
+  td = if String.valid?(d["TD"]) do
+    d["TD"]
+    |> String.replace(",", "")
+    |> String.to_integer()
+  else
+    d["TD"]
+  end
+
+
+  %FootballPlayer{}
+  |> FootballPlayer.changeset(%{
+    player_name: d["Player"],
+    team_abbreviation: d["Team"],
+    player_position: d["Pos"],
+    rushing_attemps_per_game_avg: d["Att/G"],
+    rushing_attemps: d["Att"],
+    total_rushing_yards: yds,
+    rushing_average_yards_per_attempt: d["Avg"],
+    rushing_yards_per_game: d["Yds/G"],
+    total_rushing_touchdowns: td,
+    longest_rush: lng,
+    rushing_first_downs: d["1st"],
+    rushing_first_down_percentage: d["1st%"],
+    rushing_20_yards_each: d["20+"],
+    rushing_40_yards_each: d["40+"],
+    rushing_fumbles: d["FUM"],
+  })
+  |> NflRushing.Repo.insert!
+end)
+
