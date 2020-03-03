@@ -74,29 +74,30 @@ This task locally prints out the coverage information. It doesn't submit the res
 
 ```Shell
 $ MIX_ENV=test mix coveralls
-......
+..........
 
-Finished in 0.5 seconds
-6 tests, 0 failures
+Finished in 0.4 seconds
+10 tests, 0 failures
 
-Randomized with seed 249825
+Randomized with seed 228071
 ----------------
 COV    FILE                                        LINES RELEVANT   MISSED
   0.0% lib/nfl_rushing.ex                              9        0        0
 100.0% lib/nfl_rushing/application.ex                 25        3        0
 100.0% lib/nfl_rushing/argument_parser.ex             28        6        0
 100.0% lib/nfl_rushing/football_player/football       45        4        0
-  0.0% lib/nfl_rushing/football_player/models/f       26        0        0
+  0.0% lib/nfl_rushing/football_player/models/f       41        0        0
   0.0% lib/nfl_rushing/repo.ex                         5        0        0
   0.0% lib/nfl_rushing_web.ex                         70        0        0
-  0.0% lib/nfl_rushing_web/endpoint.ex                43        0        0
+100.0% lib/nfl_rushing_web/controllers/page_con       48        8        0
+  0.0% lib/nfl_rushing_web/endpoint.ex                41        0        0
   0.0% lib/nfl_rushing_web/gettext.ex                 24        0        0
   0.0% lib/nfl_rushing_web/queries/football_pla       22        0        0
 100.0% lib/nfl_rushing_web/resolvers/football_p       14        1        0
-100.0% lib/nfl_rushing_web/router.ex                  15        2        0
+100.0% lib/nfl_rushing_web/router.ex                  30        5        0
   0.0% lib/nfl_rushing_web/schema.ex                  16        0        0
   0.0% lib/nfl_rushing_web/schemas/enums.ex           18        0        0
-  0.0% lib/nfl_rushing_web/schemas/football_pla       31        0        0
+  0.0% lib/nfl_rushing_web/schemas/football_pla       32        0        0
 100.0% lib/nfl_rushing_web/views/error_view.ex        16        1        0
 100.0% test/support/conn_case.ex                      40        4        0
 100.0% test/support/graphql_helper.ex                 12        1        0
