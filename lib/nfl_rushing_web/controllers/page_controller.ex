@@ -8,7 +8,15 @@ defmodule NflRushingWeb.PageController do
   end
 
   def download_csv(conn, params) do
-    players = FootballPlayers.all(nil, string_map_to_atoms(params))
+    params = %{
+      player_name: params["player_name"],
+      order_by: {
+        params["direction"] |> String.downcase() |> String.to_atom(),
+        params["field"] |> String.downcase() |> String.to_atom()
+      },
+    }
+
+    players = FootballPlayers.all(nil, params)
     csv_headers = "Player,Team,Pos,Att/G,Att,Yds,Avg,Yds/G,TD,Lng,1st,1st%,20+,40+,FUM"
     csv_content = Enum.map(players, fn %FootballPlayer{
       player_name: player,
@@ -42,7 +50,4 @@ defmodule NflRushingWeb.PageController do
     |> send_resp(200, "#{csv_headers}\n#{csv_content}")
   end
 
-  defp string_map_to_atoms(string_key_map) do
-    for {key, val} <- string_key_map, into: %{}, do: {String.to_atom(key), val}
-  end
 end
