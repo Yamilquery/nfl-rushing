@@ -20,6 +20,7 @@ defmodule NflRushing.MixProject do
 
   defp deps do
     [
+      {:cors_plug, "~> 2.0"},
       {:cowboy, "~> 2.4"},
       {:jason, "~> 1.1"},
       {:plug_cowboy, "~> 2.0"},

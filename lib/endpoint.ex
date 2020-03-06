@@ -9,6 +9,8 @@ defmodule NflRushing.Endpoint do
     json_decoder: Jason
   )
 
+  plug CORSPlug, origin: ["http://localhost:3000"]
+
   forward("/football_players", to: NflRushing.Router)
 
   plug(:dispatch)
