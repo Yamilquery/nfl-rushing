@@ -57,7 +57,7 @@ class App extends React.Component {
   }
 
   downloadCsv() {
-    window.location.href = `download-csv?player_name=${this.state.player_name}&direction=${this.state.direction}&field=${this.state.field}`;
+    window.location.href = `http://localhost:4000/football_players/download-csv?player_name=${this.state.player_name}&direction=${this.state.direction}&field=${this.state.field}`;
   }
 
   render() {

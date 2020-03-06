@@ -20,6 +20,17 @@ defmodule NflRushing.FootballPlayers do
     |> order_by(params)
   end
 
+  def generate_csv(params) do
+    players = list_rushing(params)
+    csv_headers = "Player\tTeam\tPos\tAtt/G\tAtt\tYds\tAvg\tYds/G\tTD\tLng\t1st\t1st%\t20+\t40+\tFUM"
+    csv_content = Enum.map(players, fn p ->
+      "#{p["Player"]}\t#{p["Team"]}\t#{p["Pos"]}\t#{p["Att/G"]}\t#{p["Att"]}\t#{p["Yds"]}\t#{p["Avg"]}\t#{p["Yds/G"]}\t#{p["TD"]}\t#{p["Lng"]}\t#{p["1st"]}\t#{p["1st%"]}\t#{p["20+"]}\t#{p["40+"]}\t#{p["FUM"]}"
+    end)
+    |> Enum.join("\n")
+
+    "#{csv_headers}\n#{csv_content}"
+  end
+
   ## private helpers
 
   defp load_rushing() do

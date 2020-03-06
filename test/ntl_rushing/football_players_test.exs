@@ -3,6 +3,12 @@ defmodule NflRushing.FootballPlayersTest do
   doctest NflRushing
   alias NflRushing.FootballPlayers, as: FootballPlayers
 
+  test "generate csv filtered by player's name" do
+    assert FootballPlayers.generate_csv(%{
+      "player_name" => "john b"
+    }) === "Player,Team,Pos,Att/G,Att,Yds,Avg,Yds/G,TD,Lng,1st,1st%,20+,40+,FUM\nJohn Brown,ARI,WR,0.1,1,10,10,0.7,0,10,1,100,0,0,0"
+  end
+
   test "list football players by name" do
     assert FootballPlayers.list_rushing(%{
       "player_name" => "john b"
