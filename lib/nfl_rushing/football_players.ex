@@ -20,6 +20,11 @@ defmodule NflRushing.FootballPlayers do
     |> order_by(params)
   end
 
+  @doc """
+  Generate football players CSV string by Player's name or sort them by Total
+  Rushing Yards, Longest Rush, and Total Rushing Touchdowns.
+  """
+  @spec generate_csv(params :: player_params) :: (csv_string :: String.t)
   def generate_csv(params) do
     players = list_rushing(params)
     csv_headers = "Player\tTeam\tPos\tAtt/G\tAtt\tYds\tAvg\tYds/G\tTD\tLng\t1st\t1st%\t20+\t40+\tFUM"
