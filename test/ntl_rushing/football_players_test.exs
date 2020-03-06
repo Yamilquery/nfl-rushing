@@ -6,7 +6,7 @@ defmodule NflRushing.FootballPlayersTest do
   test "generate csv filtered by player's name" do
     assert FootballPlayers.generate_csv(%{
       "player_name" => "john b"
-    }) === "Player,Team,Pos,Att/G,Att,Yds,Avg,Yds/G,TD,Lng,1st,1st%,20+,40+,FUM\nJohn Brown,ARI,WR,0.1,1,10,10,0.7,0,10,1,100,0,0,0"
+    }) === "Player\tTeam\tPos\tAtt/G\tAtt\tYds\tAvg\tYds/G\tTD\tLng\t1st\t1st%\t20+\t40+\tFUM\nJohn Brown\tARI\tWR\t0.1\t1\t10\t10\t0.7\t0\t10\t1\t100\t0\t0\t0"
   end
 
   test "list football players by name" do
